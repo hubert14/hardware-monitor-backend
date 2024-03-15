@@ -1,0 +1,10 @@
+﻿<div id="profiles-container" class="profiles-container row text-center">
+    <!-- <div id="profiles-loader" class="content-center">Profiles loading</div> -->
+    @foreach (var profile in _steamProfiles.Profiles)
+    {
+        <div id="profile-@(profile.SteamId)" class="profile-box col-3 profile-@(profile.StatusTitle)" title="@(profile.GameTitle ?? profile.Name)">
+            <img id="@(profile.SteamId)-avatar" src="@(profile.Avatar)" class="profile-image" />
+            <div id="@(profile.SteamId)-title" class="profile-title">@profile.Name</div>
+        </div>
+    }
+</div>

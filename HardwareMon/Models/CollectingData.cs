@@ -45,14 +45,14 @@
 
     public class ROMInfo
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public float? Temperature { get; set; }
         public float? UsedSpace { get; set; }
     }
 
     public class NetInfo
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public float? UpSpeed { get; set; }
         public float? DownSpeed { get; set; }
     }

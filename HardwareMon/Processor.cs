@@ -20,13 +20,13 @@ namespace HardwareMon
             };
 
             Console.WriteLine("Processor initialized");
+            _computer.Open();
+
         }
 
         public CollectingData GetHardwareData()
         {
             var result = new CollectingData();
-
-            _computer.Open();
             _computer.Accept(new UpdateVisitor());
 
             var motherboardSensors = _computer.Hardware.First(x => x.HardwareType == HardwareType.Motherboard).SubHardware[0].Sensors;
@@ -112,8 +112,6 @@ namespace HardwareMon
 
             //    result.NetInfo.Add(netItem);
             //}
-
-            _computer.Close();
 
             return result;
         }

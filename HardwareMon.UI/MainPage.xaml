@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HardwareMon.UI"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:winuiex="using:WinUIEx"
+             x:Class="HardwareMon.UI.MainPage">
+    <ContentPage.Content>
+        <BlazorWebView x:Name="blazorWebView" Margin="0,325,0,0" HostPage="wwwroot/index.html">
+        <BlazorWebView.RootComponents>
+            <RootComponent Selector="#app" ComponentType="{x:Type local:Routes}" />
+        </BlazorWebView.RootComponents>
+    </BlazorWebView>
+    </ContentPage.Content>
+</ContentPage>

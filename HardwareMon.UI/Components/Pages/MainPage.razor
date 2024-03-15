@@ -1,0 +1,35 @@
+﻿@page "/"
+@* <WallpaperBlock @ref=_wallpaperBlockRef/> *@
+<div id="content">
+    <div class="top-menu">
+        <div class="row">
+            <div class="col-7">
+                <SteamFriendsBlock />
+            </div>
+            <div class="col-4">
+                <HomeAssistantBlock AlertChanged="OnAlertStateChanged" />
+            </div>
+            <div class="col-1">
+                <ButtonsBlock CurrentAlertState="_currentAlertState" TriggerAlert="OnToggleAlert" OnNextClick="OnClickNext" OnPreviousClick="OnClickPrevious" />
+            </div>
+        </div>
+    </div>
+
+    @if (_selectedScreen == SelectedScreen.Loading)
+    {
+        <div id="global-loader">
+            <div class="lds-dual-ring">LOADING...</div>
+        </div>
+    }
+    else if (_selectedScreen == SelectedScreen.Alerts)
+    {
+        <div id="alert-container">
+            <iframe id="alert-frame" src="https://alerts.in.ua" width="100%" height="400px">
+            </iframe>
+        </div>
+    }
+    else if (_selectedScreen == SelectedScreen.Hardware)
+    {
+        <HardwareBlock />
+    }
+</div>
