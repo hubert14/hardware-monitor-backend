@@ -6,6 +6,7 @@
         public WindowSettings Window { get; set; }
         public SteamSettings Steam { get; set; }
         public WallpaperSettings Wallpaper { get; set; }
+        public LinkSettings Links { get; set; }
 
         public class HassSettings
         {
@@ -16,6 +17,7 @@
 
             public class HassSensorsSettings
             {
+                public string Temperature { get; set; }
                 public string Co2 { get; set; }
                 public string Alerts { get; set; }
             }
@@ -39,6 +41,20 @@
         {
             public string FolderPath { get; set; }
             public int ChangeTimerSeconds { get; set; }
+        }
+
+        public class LinkSettings
+        {
+            public List<Link> Items { get; set; }
+            public string[] Namespaces { get; set; }
+        }
+
+        public class Link
+        {
+            public string Title { get; set; }
+            public string? TitleLink { get; set; }
+            public string? Port { get; set; }
+            public string Url { get; set; }
         }
     }
 }

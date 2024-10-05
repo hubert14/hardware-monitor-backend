@@ -5,7 +5,7 @@ namespace HardwareMon.UI.Services
     public delegate void DataEventHandler<T>(object sender, T data);
     public delegate Task AsyncDataEventHandler<T>(object sender, T data);
 
-    internal class HardwareService : BaseService<CollectingData>
+    internal class HardwareService : RefreshableService<CollectingData>
     {
         private static readonly Processor _processor = new();
 

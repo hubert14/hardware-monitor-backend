@@ -6,6 +6,7 @@ namespace HardwareMon.UI.Services
 {
     public class HomeAssistantDataViewModel
     {
+        public string Temperature { get; set; } = "0";
         public string Co2 { get; set; } = "0";
         public bool Alert { get; set; }
     }
@@ -19,10 +20,11 @@ namespace HardwareMon.UI.Services
         public string? State { get; set; }
     }
 
-    internal class HomeAssistantService : BaseService<HomeAssistantDataViewModel>
+    internal class HomeAssistantService : RefreshableService<HomeAssistantDataViewModel>
     {
         private readonly HttpClient _client;
 
+        private readonly string _temperature;
         private readonly string _co2;
         private readonly string _alerts;
 
@@ -37,6 +39,7 @@ namespace HardwareMon.UI.Services
 
             _client.DefaultRequestHeaders.Authorization = new("Bearer", settings.Hass.ApiKey);
 
+            _temperature = settings.Hass.Sensors.Temperature;
             _co2 = settings.Hass.Sensors.Co2;
             _alerts = settings.Hass.Sensors.Alerts;
         }
@@ -45,11 +48,13 @@ namespace HardwareMon.UI.Services
         {
             try
             {
+                var temperature = await _client.GetFromJsonAsync<SensorResponse>("api/states/" + _temperature);
                 var co2 = await _client.GetFromJsonAsync<SensorResponse>("api/states/" + _co2);
                 var alerts = await _client.GetFromJsonAsync<SensorResponse>("api/states/" + _alerts);
 
                 return new HomeAssistantDataViewModel
                 {
+                    Temperature = temperature.State,
                     Co2 = co2.State,
                     Alert = alerts.State == "on"
                 };

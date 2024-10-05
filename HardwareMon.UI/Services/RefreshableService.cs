@@ -1,6 +1,6 @@
 ﻿namespace HardwareMon.UI.Services
 {
-    abstract class BaseService<T>
+    abstract class RefreshableService<T>
     {
         public event AsyncDataEventHandler<T>? NewDataArrivedEvent;
 

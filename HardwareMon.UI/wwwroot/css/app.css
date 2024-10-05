@@ -193,11 +193,11 @@ body {
 }
 
 .sensor-container {
-    font-size: 23px;
+    font-size: 20px;
 }
 
 .sensor-value {
-    font-size: 24px;
+    font-size: 21px;
     font-weight: bold;
 }
 
@@ -245,4 +245,33 @@ body {
     position: fixed;
     width: 100%;
     z-index: 1000;
+}
+
+td {
+    padding: 6px 14px 0px 14px;
+}
+
+code {
+    color: lightgray;
+    font-size: 20px;
+}
+
+a:link code {
+    color: var(--measure-color);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.title {
+    color: var(--measure-color);
+}
+
+.url {
+    color: var(--measure-light-color);
+}
+
+.clickable {
+    cursor: pointer;
 }

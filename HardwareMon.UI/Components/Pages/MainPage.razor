@@ -6,11 +6,11 @@
             <div class="col-7">
                 <SteamFriendsBlock />
             </div>
-            <div class="col-4">
+            <div class="col-3">
                 <HomeAssistantBlock AlertChanged="OnAlertStateChanged" />
             </div>
-            <div class="col-1">
-                <ButtonsBlock CurrentAlertState="_currentAlertState" TriggerAlert="OnToggleAlert" OnNextClick="OnClickNext" OnPreviousClick="OnClickPrevious" />
+            <div class="col-2">
+                <ButtonsBlock CurrentAlertState="@_currentAlertState" TriggerAlert="OnToggleAlert" TriggerLinks="OnToggleLink" OnNextClick="OnClickNext" OnPreviousClick="OnClickPrevious" />
             </div>
         </div>
     </div>
@@ -24,9 +24,13 @@
     else if (_selectedScreen == SelectedScreen.Alerts)
     {
         <div id="alert-container">
-            <iframe id="alert-frame" src="https://alerts.in.ua" width="100%" height="400px">
+            <iframe id="alert-frame" src="https://alerts.in.ua" width="100%" height="390px">
             </iframe>
         </div>
+    }
+    else if (_selectedScreen == SelectedScreen.Links)
+    {
+        <LinksBlock Click="OnToggleLink" />
     }
     else if (_selectedScreen == SelectedScreen.Hardware)
     {

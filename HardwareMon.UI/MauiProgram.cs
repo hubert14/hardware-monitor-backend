@@ -51,6 +51,7 @@ namespace HardwareMon.UI
             builder.Services.AddSingleton<HomeAssistantService>();
             builder.Services.AddSingleton<SteamService>();
             builder.Services.AddSingleton<WallpaperService>();
+            builder.Services.AddSingleton<LinksService>();
 
             builder.Services.AddMauiBlazorWebView();
 

@@ -51,7 +51,7 @@ namespace HardwareMon.UI.Services
         public List<SteamProfile> Profiles { get; set; } = new();
     }
 
-    internal class SteamService : BaseService<SteamDataViewModel>
+    internal class SteamService : RefreshableService<SteamDataViewModel>
     {
         protected override int RetrieveDelayMillis => 60_000;
 
@@ -75,7 +75,28 @@ namespace HardwareMon.UI.Services
             //        {
             //            Status = 1,
             //            Name = "huber",
-            //            SteamId = "888228",
+            //            SteamId = "8858228",
+            //            Avatar = "https://google.com/favicon.ico"
+            //        },
+            //        new SteamProfile
+            //        {
+            //            Status = 1,
+            //            Name = "hubert",
+            //            SteamId = "8388228",
+            //            Avatar = "https://google.com/favicon.ico"
+            //        },
+            //        new SteamProfile
+            //        {
+            //            Status = 1,
+            //            Name = "hubeur",
+            //            SteamId = "8828228",
+            //            Avatar = "https://google.com/favicon.ico"
+            //        },
+            //        new SteamProfile
+            //        {
+            //            Status = 1,
+            //            Name = "huberi",
+            //            SteamId = "8881228",
             //            Avatar = "https://google.com/favicon.ico"
             //        }
             //    }
