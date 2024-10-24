@@ -109,31 +109,31 @@
             <div class="row">
                 <div class="col-4 text-center sm">SSD</div>
                 <div class="col-3"></div>
-                <div class="col-4 text-centersm">MB</div>
+                <div class="col-4 text-center sm">MB</div>
                 <div class="row">
                     <div class="col-2">
-                        <div class="progress progress-bar-vertical" style="height: 30px; width: 30px;">
+                        <div class="progress progress-bar-vertical large">
                             <div id="ssd-temp1-bar" class="progress measure-progress progress-bar" style="height: @(_hardware.ROM.FirstTemperature)%">
                             </div>
                         </div>
                         <div id="ssd-temp1" class="row sm" style="margin-left: -5px;">@(_hardware.ROM.FirstTemperature)</div>
                     </div>
                     <div class="col-2">
-                        <div class="progress progress-bar-vertical" style="height: 30px; width: 30px;">
+                        <div class="progress progress-bar-vertical large">
                             <div id="ssd-temp2-bar" class="progress measure-light-progress progress-bar" style="height: @(_hardware.ROM.SecondTemperature)%"></div>
                         </div>
                         <div id="ssd-temp2" class="row sm" style="margin-left: 5px;">@(_hardware.ROM.SecondTemperature)</div>
                     </div>
                     <div class="col-2"></div>
                     <div class="col-2">
-                        <div class="progress progress-bar-vertical" style="height: 30px; width: 30px;">
+                        <div class="progress progress-bar-vertical large">
                             <div id="mb-temp1-bar" class="progress measure-progress progress-bar" style="height: @(_hardware.Motherboard.FirstTemperature)%">
                             </div>
                         </div>
                         <div id="mb-temp1" class="row sm" style="margin-left: -5px;">@(_hardware.Motherboard.FirstTemperature)</div>
                     </div>
                     <div class="col-2">
-                        <div class="progress progress-bar-vertical" style="height: 30px; width: 30px;">
+                        <div class="progress progress-bar-vertical large">
                             <div id="mb-temp2-bar" class="progress measure-light-progress progress-bar" style="height: @(_hardware.Motherboard.SecondTemperature)%"></div>
                         </div>
                         <div id="mb-temp2" class="row sm" style="margin-left: 5px">@(_hardware.Motherboard.SecondTemperature)</div>

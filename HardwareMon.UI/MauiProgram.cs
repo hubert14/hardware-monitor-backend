@@ -2,10 +2,7 @@
 using HardwareMon.UI.Settings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Maui.LifecycleEvents;
-using Microsoft.UI.Composition.SystemBackdrops;
 using Microsoft.UI.Windowing;
-using Microsoft.UI.Xaml.Media;
-using Windows.UI.WebUI;
 using WinUIEx;
 
 namespace HardwareMon.UI
@@ -50,7 +47,7 @@ namespace HardwareMon.UI
             builder.Services.AddSingleton<HardwareService>();
             builder.Services.AddSingleton<HomeAssistantService>();
             builder.Services.AddSingleton<SteamService>();
-            builder.Services.AddSingleton<WallpaperService>();
+            builder.Services.AddSingleton<ButtonsService>();
             builder.Services.AddSingleton<LinksService>();
 
             builder.Services.AddMauiBlazorWebView();

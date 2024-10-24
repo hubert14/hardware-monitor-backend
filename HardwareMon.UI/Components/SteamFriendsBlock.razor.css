@@ -1,0 +1,32 @@
+.profiles-container {
+    margin-top: 4px;
+    width: 100%;
+    background: transparent !important;
+}
+
+.profile-box {
+    padding: 1px;
+}
+
+.profile-image {
+    border: solid;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.profile-offline {
+    color: darkgrey;
+    opacity: 75%;
+}
+
+.profile-online {
+    color: lightblue;
+}
+
+.profile-unknown {
+    color: lightcoral;
+}
+
+.profile-playing {
+    color: lightgreen;
+}

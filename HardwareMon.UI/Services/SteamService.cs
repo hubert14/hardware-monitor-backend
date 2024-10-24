@@ -80,24 +80,25 @@ namespace HardwareMon.UI.Services
             //        },
             //        new SteamProfile
             //        {
-            //            Status = 1,
+            //            Status = 2,
             //            Name = "hubert",
             //            SteamId = "8388228",
             //            Avatar = "https://google.com/favicon.ico"
             //        },
             //        new SteamProfile
             //        {
-            //            Status = 1,
+            //            Status = 0,
             //            Name = "hubeur",
             //            SteamId = "8828228",
-            //            Avatar = "https://google.com/favicon.ico"
+            //            Avatar = "https://google.com/favicon.ico",
             //        },
             //        new SteamProfile
             //        {
-            //            Status = 1,
-            //            Name = "huberi",
+            //            Status = 3,
+            //            Name = "hbrt.taburtk.com",
             //            SteamId = "8881228",
-            //            Avatar = "https://google.com/favicon.ico"
+            //            Avatar = "https://google.com/favicon.ico",
+            //            GameTitle = "Memos"
             //        }
             //    }
             //};

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace HardwareMon.UI.Components
 {
-    public partial class HomeAssistantBlock
+    public partial class HomeAssistantBlock : IDisposable
     {
         [Inject] private HomeAssistantService HomeAssistantService { get; set; }
 
@@ -37,6 +37,26 @@ namespace HardwareMon.UI.Components
             }
 
             await InvokeAsync(StateHasChanged);
+        }
+
+        private bool _disposedValue;
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposedValue)
+            {
+                if (disposing)
+                {
+                    HomeAssistantService.NewDataArrivedEvent -= OnNewDataArrivedAsync;
+                }
+
+                _disposedValue = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }

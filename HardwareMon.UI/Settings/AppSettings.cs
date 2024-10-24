@@ -5,7 +5,7 @@
         public HassSettings Hass { get; set; }
         public WindowSettings Window { get; set; }
         public SteamSettings Steam { get; set; }
-        public WallpaperSettings Wallpaper { get; set; }
+        public ButtonSettings Buttons { get; set; }
         public LinkSettings Links { get; set; }
 
         public class HassSettings
@@ -37,10 +37,17 @@
             public string[] SteamIDs { get; set; }
         }
 
-        public class WallpaperSettings
+        public class ButtonSettings
         {
-            public string FolderPath { get; set; }
-            public int ChangeTimerSeconds { get; set; }
+            public List<ButtonInfo> Items { get; set; }
+        }
+
+        public class ButtonInfo
+        {
+            public string Title { get; set; }
+            public string Color { get; set; }
+            public string Image { get; set; }
+            public string Url { get; set; }
         }
 
         public class LinkSettings

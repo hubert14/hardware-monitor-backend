@@ -1,4 +1,11 @@
-﻿<div id="links-button" class="btn btn-primary" @onclick="OnLinksButtonClickAsync">L</div>
-<div id="alert-button" class="btn btn-@(CurrentAlertState ? "danger" : "secondary")" @onclick="OnAlertButtonClickAsync">A</div>
-@* <div id="previous-button" class="btn btn-secondary" @onclick="OnPreviousButtonClickAsync">P</div>
-<div id="next-button" class="btn btn-secondary" @onclick="OnNextButtonClickAsync">N</div> *@
+﻿<div class="button-row">
+    @foreach (var button in _buttons)
+    {
+        <div class="square-btn">
+        <a href="@button.Url">
+            <div class="icon-container"><img src="icons/@(button.Image)" /></div>
+            <div class="title-container"><span style="color: @(button.Color)">@(button.Title[0])</span>@(button.Title.AsSpan()[1..].ToString())</div>
+        </a>
+        </div>
+    }
+</div>

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace HardwareMon.UI.Components
 {
-    public partial class SteamFriendsBlock
+    public partial class SteamFriendsBlock : IDisposable
     {
         [Inject] private SteamService SteamService { get; set; }
 
@@ -27,6 +27,26 @@ namespace HardwareMon.UI.Components
         {
             _steamProfiles = data;
             await InvokeAsync(StateHasChanged);
+        }
+
+        private bool _disposedValue;
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposedValue)
+            {
+                if (disposing)
+                {
+                    SteamService.NewDataArrivedEvent -= OnNewDataArrivedAsync;
+                }
+
+                _disposedValue = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }

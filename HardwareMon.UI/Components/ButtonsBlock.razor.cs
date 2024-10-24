@@ -1,35 +1,20 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using HardwareMon.UI.Services;
+using Microsoft.AspNetCore.Components;
+using static HardwareMon.UI.Settings.AppSettings;
 
 namespace HardwareMon.UI.Components
 {
     public partial class ButtonsBlock
     {
-        [Parameter] public EventCallback TriggerAlert { get; set; }
-        [Parameter] public EventCallback TriggerLinks { get; set; }
-        [Parameter] public EventCallback OnPreviousClick { get; set; }
-        [Parameter] public EventCallback OnNextClick { get; set; }
+        [Inject] private ButtonsService ButtonsService { get; set; }
 
-        [Parameter] public bool CurrentAlertState { get; set; }
+        List<ButtonInfo> _buttons;
 
-        private async Task OnAlertButtonClickAsync()
+        protected override void OnInitialized()
         {
-            await TriggerAlert.InvokeAsync();
-        }
 
-        private async Task OnLinksButtonClickAsync()
-        {
-            await TriggerLinks.InvokeAsync();
+            _buttons = ButtonsService.Buttons;
+            base.OnInitialized();
         }
-
-        private async Task OnPreviousButtonClickAsync()
-        {
-            await OnPreviousClick.InvokeAsync();
-        }
-
-        private async Task OnNextButtonClickAsync()
-        {
-            await OnNextClick.InvokeAsync();
-        }
-
     }
 }

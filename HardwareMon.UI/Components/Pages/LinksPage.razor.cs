@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Components;
 using static HardwareMon.UI.Settings.AppSettings;
 
-namespace HardwareMon.UI.Components
+namespace HardwareMon.UI.Components.Pages
 {
-    public partial class LinksBlock
+    public partial class LinksPage
     {
         [Inject] private LinksService LinksService { get; set; }
 

@@ -1,39 +1,47 @@
 ﻿@page "/"
-@* <WallpaperBlock @ref=_wallpaperBlockRef/> *@
 <div id="content">
     <div class="top-menu">
         <div class="row">
-            <div class="col-7">
-                <SteamFriendsBlock />
+            <div class="col-8" style="height: 70px">
+                <div @onwheel="OnSelectedBlockChanged">
+                    @if(_selectedTopBlock == SelectedTopBlock.Friends)
+                    {
+                        <SteamFriendsBlock />
+                    }
+                    else if(_selectedTopBlock == SelectedTopBlock.Services)
+                    {
+                        <ButtonsBlock />
+                    }
+                </div>
             </div>
             <div class="col-3">
                 <HomeAssistantBlock AlertChanged="OnAlertStateChanged" />
             </div>
-            <div class="col-2">
-                <ButtonsBlock CurrentAlertState="@_currentAlertState" TriggerAlert="OnToggleAlert" TriggerLinks="OnToggleLink" OnNextClick="OnClickNext" OnPreviousClick="OnClickPrevious" />
+            <div class="col-1">
+                <PagesButtonsBlock CurrentAlertState="@_currentAlertState"
+                                   TriggerAlert="OnToggleAlert" TriggerLinks="OnToggleLink" />
             </div>
         </div>
     </div>
 
-    @if (_selectedScreen == SelectedScreen.Loading)
-    {
-        <div id="global-loader">
-            <div class="lds-dual-ring">LOADING...</div>
-        </div>
-    }
-    else if (_selectedScreen == SelectedScreen.Alerts)
-    {
-        <div id="alert-container">
-            <iframe id="alert-frame" src="https://alerts.in.ua" width="100%" height="390px">
-            </iframe>
-        </div>
-    }
-    else if (_selectedScreen == SelectedScreen.Links)
-    {
-        <LinksBlock Click="OnToggleLink" />
-    }
-    else if (_selectedScreen == SelectedScreen.Hardware)
-    {
-        <HardwareBlock />
-    }
+    <div style="overflow: hidden">
+        @if (_selectedScreen == SelectedScreen.Loading)
+        {
+            <div id="global-loader">
+                <div class="lds-dual-ring">LOADING...</div>
+            </div>
+        }
+        else if (_selectedScreen == SelectedScreen.Alerts)
+        {
+            <AlertsPage />
+        }
+        else if (_selectedScreen == SelectedScreen.Links)
+        {
+            <LinksPage Click="OnToggleLink" />
+        }
+        else if (_selectedScreen == SelectedScreen.Hardware)
+        {
+            <HardwarePage />
+        }
+    </div>
 </div>

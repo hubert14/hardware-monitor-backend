@@ -2,9 +2,9 @@
 using HardwareMon.UI.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace HardwareMon.UI.Components
+namespace HardwareMon.UI.Components.Pages
 {
-    public partial class HardwareBlock
+    public partial class HardwarePage : IDisposable
     {
         [Inject] private HardwareService HardwareService { get; set; }
 
@@ -28,6 +28,26 @@ namespace HardwareMon.UI.Components
         {
             _hardware = new HardwareInfoViewModel(data);
             await InvokeAsync(StateHasChanged);
+        }
+
+        private bool _disposedValue;
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposedValue)
+            {
+                if (disposing)
+                {
+                    HardwareService.NewDataArrivedEvent -= OnNewDataArrivedAsync;
+                }
+
+                _disposedValue = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }

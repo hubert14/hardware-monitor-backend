@@ -1,0 +1,8 @@
+.sensor-container {
+    font-size: 21px;
+    margin-top: 6px;
+}
+
+.sensor-value {
+    font-weight: bold;
+}

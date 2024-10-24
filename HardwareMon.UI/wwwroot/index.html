@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="HardwareMon.UI.styles.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -27,22 +29,6 @@
     </div>
 
     <script src="_framework/blazor.webview.js" autostart="false"></script>
-    <script>
-        window.createObjectURL = async (imageStream) => {
-            const arrayBuffer = await imageStream.arrayBuffer();
-            const blob = new Blob([arrayBuffer]);
-            return URL.createObjectURL(blob);
-        }
-
-        window.revokeObjectURL = (url) => {
-            URL.revokeObjectURL(url);
-        }
-
-        window.muteVideo = () => {
-            var element = document.getElementById('wallpaper-video');
-            element.muted = "muted";
-        }
-    </script>
 </body>
 
 </html>
